@@ -19,7 +19,7 @@ public class NoticiasServiceImp implements INoticiasService {
 	private INoticiasDao notdao;
 	
 	@Override	
-	public ResponseEntity<NoticiasResponseRest>savefav(Noticas noticias) {
+	public ResponseEntity<NoticiasResponseRest>savefav(Noticas noticias) {		
 		NoticiasResponseRest response = new NoticiasResponseRest();
 		int validator = validarDatosNulos(noticias);	
 		if (validator == 0) {
