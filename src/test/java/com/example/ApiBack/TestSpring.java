@@ -50,5 +50,17 @@ class TestSpring {
             assertEquals("OK", status);
         }
     }
+	
+	@Test
+	void testdeletefav() {
+		ResponseEntity<NoticiasResponseRest> result = noticiasService.deletefav((long) 1);
+        assertFalse(result.getStatusCode().is2xxSuccessful()); 
+        ArrayList<HashMap<String, String>> metadataList = result.getBody().getMetadata();
+        if (!metadataList.isEmpty()) {
+            HashMap<String, String> metadataMap = metadataList.get(0);
+            String status = metadataMap.get("description"); 
+            assertNotEquals("OK", status);
+        }
+	}
 
 }
